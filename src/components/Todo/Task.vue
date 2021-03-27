@@ -17,9 +17,7 @@
           </v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
-          <v-btn icon @click.stop="$store.dispatch('deleteTask', task.id)">
-            <v-icon color="red lighten-1">mdi-trash-can-outline</v-icon>
-          </v-btn>
+          <task-menu :task='task'></task-menu>
         </v-list-item-action>
       </template>
     </v-list-item>
@@ -30,5 +28,8 @@
 <script>
 export default {
   props: ["task"],
+  components: {
+    "task-menu": require("@/components/Todo/TaskMenu.vue").default,
+  },
 };
 </script>
