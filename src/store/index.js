@@ -18,6 +18,10 @@ export default new Vuex.Store({
         done: false,
       },
     ],
+    snackbar: {
+      show: false,
+      text: "",
+    },
   },
   mutations: {
     //vuex만 존재 state변화
@@ -36,9 +40,31 @@ export default new Vuex.Store({
     deleteTask(state, id) {
       state.tasks = state.tasks.filter((task) => task.id !== id);
     },
+    showSnackBar(state, text) {
+      let timeout = 0;
+      if (state.snackbar.show) {
+        state.snackbar.show = false;
+        timeout = 300;
+      }
+      setTimeout(() => {
+        state.snackbar.show = true;
+        state.snackbar.text = text;
+      }, timeout);
+    },
+    hideSnackBar(state) {
+      state.snackbar.show = false;
+    },
   },
   actions: {
     //vue == methods 함수.
+    addTask({ commit }, newTaskTitle) {
+      commit("addTask", newTaskTitle);
+      commit("showSnackBar", "Task가 추가 되었습니다.");
+    },
+    deleteTask({ commit }, id) {
+      commit("deleteTask", id);
+      commit("showSnackBar", "Task가 삭제 되었습니다.");
+    },
   },
   modules: {
     //vue == computed 계산값.
