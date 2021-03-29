@@ -32,27 +32,19 @@
         ></v-img>
       </template>
 
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>TodoList</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <v-container class="pa-2">
+        <v-row>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-spacer></v-spacer>
+          <search></search>
+        </v-row>
+        <v-row>
+          <v-app-bar-title class="ml-3" >Todo List</v-app-bar-title>
+        </v-row>
+      </v-container>
     </v-app-bar>
 
     <v-main>
-      <!--  -->
       <router-view></router-view>
       <snackbar></snackbar>
     </v-main>
@@ -60,6 +52,7 @@
 </template>
 
 <script>
+import Search from "./components/Tools/Search.vue";
 // import SnackBar from './components/Shared/SnackBar.vue';
 export default {
   data: () => ({
@@ -69,8 +62,9 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
-  components:{
-    'snackbar': require('@/components/Shared/SnackBar.vue').default
-  }
+  components: {
+    snackbar: require("@/components/Shared/SnackBar.vue").default,
+    search: require("@/components/Tools/Search.vue").default,
+  },
 };
 </script>

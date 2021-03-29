@@ -4,18 +4,21 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 //global
 export default new Vuex.Store({
+  //vue == data  상태 데이터
   state: {
-    //vue == data  상태 데이터
+    search: null,
     tasks: [
       {
         id: 1,
         title: "오늘 할 일을 등록하세요",
         done: false,
+        dueDate: "2021-03-01",
       },
       {
         id: 2,
         title: "디폴트 리스트는 삭제하세요.",
         done: false,
+        dueDate: "2021-03-29",
       },
     ],
     snackbar: {
@@ -30,6 +33,7 @@ export default new Vuex.Store({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
+        dueDate: null,
       };
       state.tasks.push(newTask);
     },
@@ -44,6 +48,10 @@ export default new Vuex.Store({
       let task = state.tasks.filter((task) => task.id === payload.id)[0];
       task.title = payload.title;
     },
+    updateTaskDueDate(state, payload) {
+      let task = state.tasks.filter((task) => task.id === payload.id)[0];
+      task.dueDate = payload.dueDate;
+    },
     showSnackBar(state, text) {
       let timeout = 0;
       if (state.snackbar.show) {
@@ -57,6 +65,9 @@ export default new Vuex.Store({
     },
     hideSnackBar(state) {
       state.snackbar.show = false;
+    },
+    setSearch(state, value) {
+      state.search = value;
     },
   },
   actions: {
@@ -73,8 +84,18 @@ export default new Vuex.Store({
       commit("updateTaskTitle", payload);
       commit("showSnackBar", "Task가 수정 되었습니다.");
     },
+    updateTaskDueDate({ commit }, payload) {
+      commit("updateTaskDueDate", payload);
+      commit("showSnackBar", "일정이 수정 되었습니다.");
+    },
   },
-  modules: {
+  getters: {
     //vue == computed 계산값.
+    tasksFiltered(state) {
+      if (!state.search) {
+        return state.tasks;
+      }
+      return state.tasks.filter((task) => task.title.includes(state.search.toLowerCase()));
+    },
   },
 });
