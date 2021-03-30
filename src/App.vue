@@ -1,15 +1,19 @@
 
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title class="title"> TodoList </v-list-item-title>
-          <v-list-item-subtitle> One day TodoList </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
+    <v-navigation-drawer v-model="drawer" app :mobile-breakpoint="768">
+      <v-img
+        class="pa-4 pt-5"
+        height="150"
+        src="cyclist.jpg"
+        gradient="to top right, rgba(80,90,100,.5), rgba(50,50,50,.8)"
+      >
+        <v-avatar size="70" class="nb-2">
+          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+        </v-avatar>
+        <div class="white--text text-subtitle-1 font-weight-bold">rrakoon</div>
+        <div class="white--text text-subtitle-2">010-5009-0285</div>
+      </v-img>
 
       <v-list dense nav>
         <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
@@ -24,7 +28,14 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="primary" dark src="cyclist.jpg" prominent>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+      src="cyclist.jpg"
+      prominent
+      height="150"
+    >
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -32,14 +43,17 @@
         ></v-img>
       </template>
 
-      <v-container class="pa-2">
+      <v-container class="header-container pa-0">
         <v-row>
           <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
           <v-spacer></v-spacer>
           <search></search>
         </v-row>
         <v-row>
-          <v-app-bar-title class="ml-3" >Todo List</v-app-bar-title>
+          <v-app-bar-title class="text-h5 ml-3">Todo List</v-app-bar-title>
+        </v-row>
+        <v-row>
+          <live-date-time></live-date-time>
         </v-row>
       </v-container>
     </v-app-bar>
@@ -52,7 +66,6 @@
 </template>
 
 <script>
-import Search from "./components/Tools/Search.vue";
 // import SnackBar from './components/Shared/SnackBar.vue';
 export default {
   data: () => ({
@@ -65,6 +78,11 @@ export default {
   components: {
     snackbar: require("@/components/Shared/SnackBar.vue").default,
     search: require("@/components/Tools/Search.vue").default,
+    "live-date-time": require("@/components/Tools/LiveDateTime.vue").default,
   },
 };
 </script>
+<style lang="sass">
+.header-container
+  max-width: none !important
+</style>

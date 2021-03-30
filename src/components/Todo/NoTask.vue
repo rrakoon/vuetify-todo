@@ -1,6 +1,6 @@
 <template>
   <div class="no-tasks">
-    <v-icon size="250" color="red lighten-4"> mdi-block-helper </v-icon>
+    <v-icon size="150" color="primary lighten-2"> mdi-block-helper </v-icon>
     <div class="text-h5 primary--text">
       <br>
       <p style="text-align: center">No Tasks.</p>
