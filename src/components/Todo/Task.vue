@@ -27,6 +27,14 @@
         <v-list-item-action>
           <task-menu :task="task"></task-menu>
         </v-list-item-action>
+
+        <v-list-item-action
+          v-if="$store.state.sorting"
+        >
+          <v-btn color="primary" icon>
+            <v-icon>mdi-drag-horizontal-variant</v-icon>
+          </v-btn>
+        </v-list-item-action>
       </template>
     </v-list-item>
     <v-divider></v-divider>
@@ -35,13 +43,13 @@
 
 <script>
 /* https://date-fns.org/ */
-import { format } from 'date-fns'
+import { format } from "date-fns";
 export default {
   props: ["task"],
-  filters:{
-    calendarDate(value){
-      return format(new Date(value), 'yyyy-MMM-dd')
-    }
+  filters: {
+    calendarDate(value) {
+      return format(new Date(value), "yyyy-MMM-dd");
+    },
   },
   components: {
     "task-menu": require("@/components/Todo/TaskMenu.vue").default,

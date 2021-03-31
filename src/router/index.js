@@ -23,6 +23,7 @@ const routes = [
 const router = new VueRouter({
   routes,
 });
+// https://router.vuejs.org/kr/
 router.beforeEach((to, from, next) => {
   // console.log(to);
   document.title = `${process.env.VUE_APP_TITLE}-${to.name}`;
