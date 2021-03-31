@@ -23,5 +23,10 @@ const routes = [
 const router = new VueRouter({
   routes,
 });
+router.beforeEach((to, from, next) => {
+  // console.log(to);
+  document.title = `TodoList-${to.name}`;
+  next();
+});
 
 export default router;

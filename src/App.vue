@@ -8,11 +8,20 @@
         src="cyclist.jpg"
         gradient="to top right, rgba(80,90,100,.5), rgba(50,50,50,.8)"
       >
-        <v-avatar size="70" class="nb-2">
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
-        </v-avatar>
-        <div class="white--text text-subtitle-1 font-weight-bold">rrakoon</div>
-        <div class="white--text text-subtitle-2">010-5009-0285</div>
+        <v-row align="center" justify="center">
+          <v-avatar size="70" class="nb-2">
+            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+          </v-avatar>
+        </v-row>
+        <div
+          class="white--text text-subtitle-1 font-weight-bold pt-3"
+          style="text-align: center"
+        >
+          rrakoon
+        </div>
+        <div class="white--text text-subtitle-2" style="text-align: center">
+          010-xxxx-xxxx
+        </div>
       </v-img>
 
       <v-list dense nav>
