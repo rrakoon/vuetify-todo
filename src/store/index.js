@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   //vue == data  상태 데이터
   state: {
+    appTitle: process.env.VUE_APP_TITLE,
     search: null,
     tasks: [
       {

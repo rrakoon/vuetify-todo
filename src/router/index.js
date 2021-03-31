@@ -25,7 +25,8 @@ const router = new VueRouter({
 });
 router.beforeEach((to, from, next) => {
   // console.log(to);
-  document.title = `TodoList-${to.name}`;
+  document.title = `${process.env.VUE_APP_TITLE}-${to.name}`;
+  //route title
   next();
 });
 

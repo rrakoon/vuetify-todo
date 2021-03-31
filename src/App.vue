@@ -59,7 +59,9 @@
           <search></search>
         </v-row>
         <v-row>
-          <v-app-bar-title class="text-h5 ml-3">Todo List</v-app-bar-title>
+          <v-app-bar-title class="text-h5 ml-3">
+            {{$store.state.appTitle}}
+          </v-app-bar-title>
         </v-row>
         <v-row>
           <live-date-time></live-date-time>
@@ -84,6 +86,11 @@ export default {
       { title: "About", icon: "mdi-help-box", to: "/about" },
     ],
   }),
+  // computed:{
+  //   appTitle(){
+  //     return process.env.VUE_APP_TITLE
+  //   }
+  // },
   components: {
     snackbar: require("@/components/Shared/SnackBar.vue").default,
     search: require("@/components/Tools/Search.vue").default,
