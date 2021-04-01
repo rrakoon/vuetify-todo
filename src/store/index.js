@@ -35,7 +35,7 @@ export default new Vuex.Store({
         id: Date.now(),
         title: newTaskTitle,
         done: false,
-        dueDate: null,
+        dueDate: Date.now(),
       };
       state.tasks.push(newTask);
     },
@@ -53,6 +53,9 @@ export default new Vuex.Store({
     updateTaskDueDate(state, payload) {
       let task = state.tasks.filter((task) => task.id === payload.id)[0];
       task.dueDate = payload.dueDate;
+    },
+    setTasks(state, tasks) {
+      state.tasks = tasks;
     },
     showSnackBar(state, text) {
       let timeout = 0;
