@@ -1,2 +1,2 @@
 (window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(e,t,i){"use strict";i.r(t);var a=function(){var e=this,t=e.$createElement,i=e._self._c||t;return i("div",{staticClass:"about pa-6"},[i("h1",[e._v("This is an "+e._s(e.$store.state.appTitle))]),i("p",[e._v("Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam voluptatibus eveniet quas voluptatum error inventore. Cupiditate nulla eligendi reiciendis earum, laudantium qui iste magnam eaque perspiciatis veritatis delectus nobis voluptate!")])])},s=[],u=i("2877"),n={},l=Object(u["a"])(n,a,s,!1,null,null,null);t["default"]=l.exports}}]);
-//# sourceMappingURL=about.90b848f3.js.map
+//# sourceMappingURL=about.a6a1df11.js.map
