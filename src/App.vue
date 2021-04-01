@@ -60,7 +60,7 @@
         </v-row>
         <v-row>
           <v-app-bar-title class="text-h5 ml-3">
-            {{$store.state.appTitle}}
+            {{ $store.state.appTitle }}
           </v-app-bar-title>
         </v-row>
         <v-row>
@@ -91,6 +91,10 @@ export default {
   //     return process.env.VUE_APP_TITLE
   //   }
   // },
+
+  mounted() {
+    this.$store.dispatch("getTasks");
+  },
   components: {
     snackbar: require("@/components/Shared/SnackBar.vue").default,
     search: require("@/components/Tools/Search.vue").default,
