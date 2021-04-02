@@ -43,7 +43,7 @@
       dark
       src="cyclist.jpg"
       prominent
-      height="150"
+      height="220"
     >
       <template v-slot:img="{ props }">
         <v-img
@@ -65,6 +65,9 @@
         </v-row>
         <v-row>
           <live-date-time></live-date-time>
+        </v-row>
+        <v-row>
+          <field-add-task></field-add-task>
         </v-row>
       </v-container>
     </v-app-bar>
@@ -96,9 +99,11 @@ export default {
     this.$store.dispatch("getTasks");
   },
   components: {
-    snackbar: require("@/components/Shared/SnackBar.vue").default,
-    search: require("@/components/Tools/Search.vue").default,
+    'snackbar': require("@/components/Shared/SnackBar.vue").default,
+    'search': require("@/components/Tools/Search.vue").default,
     "live-date-time": require("@/components/Tools/LiveDateTime.vue").default,
+    "field-add-task": require("@/components/Todo/FieldAddTask.vue").default,
+    
   },
 };
 </script>

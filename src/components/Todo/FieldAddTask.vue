@@ -3,7 +3,7 @@
   <v-text-field
     v-model="newTaskTitle"
     @keyup.enter="addTask"
-    class="pa-3"
+    class="field-add-task pa-3"
     outlined
     label="Add Task"
     hide-details
@@ -11,11 +11,7 @@
   >
     <template v-slot:append>
       <v-fade-transition leave-absolute>
-        <v-icon
-          @click="addTask"
-          color="primary"
-          :disabled="newTaskTitleInvalid"
-         >
+        <v-icon @click="addTask" color="white" :disabled="newTaskTitleInvalid">
           mdi-comment-plus
         </v-icon>
       </v-fade-transition>
@@ -30,14 +26,14 @@ export default {
       newTaskTitle: "",
     };
   },
-  computed:{
-    newTaskTitleInvalid(){
-      return !this.newTaskTitle
-    }
+  computed: {
+    newTaskTitleInvalid() {
+      return !this.newTaskTitle;
+    },
   },
   methods: {
     addTask() {
-      if(!this.newTaskTitleInvalid){
+      if (!this.newTaskTitleInvalid) {
         this.$store.dispatch("addTask", this.newTaskTitle); //store action
         this.newTaskTitle = "";
       }
@@ -45,3 +41,8 @@ export default {
   },
 };
 </script>
+<style lang="sass">
+.field-add-task.v-input--is-focused
+  .v-input__slot
+    background: #3d5e7b73 !important
+</style>

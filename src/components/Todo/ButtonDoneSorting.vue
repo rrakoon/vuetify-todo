@@ -4,7 +4,7 @@
     color="primary"
     class="button-done-sorting"
   >
-    Done Sorting
+    Task Sort Fix
   </v-btn>
 </template>
 
