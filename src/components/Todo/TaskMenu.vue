@@ -76,7 +76,12 @@ export default {
         title: "정렬",
         icon: "mdi-drag-horizontal-variant",
         click() {
-          this.$store.commit('toggleSorting');
+          if(!this.$store.state.search){
+            this.$store.commit('toggleSorting');
+          }
+          else{
+            this.$store.commit('showSnackBar',"찾기 중 정렬은 불가합니다.")
+          }
         },
       },
     ],
