@@ -8,6 +8,7 @@
         Add Task로 List등록.<br>
          <v-icon>mdi-dots-vertical</v-icon> 에 수정, 삭제, 정렬기능(draggable) 추가.<br>
          indexDB에 Add Task List 저장.<br>
+         <v-icon>mdi-magnify</v-icon>으로 검색 기능.<br>
          반응형으로 모바일 및 PC환경에 따라 달라진다.
       </p>
     </div>
